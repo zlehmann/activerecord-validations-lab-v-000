@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
     keywords = ["Won't Believe", "Secrete", "Top [number]", "Guess"]
     result = false
     keywords.each do |word|
-      if record.title.include(word)
+      if record.title.include?(word)
         result = true
       end
     end
