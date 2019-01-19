@@ -8,10 +8,10 @@ class Post < ActiveRecord::Base
   private
 
   def clickbait
-    keywords = ["Won't Believe", "Secrete", "Top [number]", "Guess"]
+    keywords = ["Won't Believe", "Secret", "Top [number]", "Guess"]
     result = false
     keywords.each do |word|
-      if title.include?(word)
+      if :title.include?(word)
         result = true
       end
     end
