@@ -3,9 +3,9 @@ class Post < ActiveRecord::Base
   validates :content, length: { minimum: 10 }
   validates :summary, length: { maximum: 50 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
-  validate(self)
+  validate :clickbait
 
-  def validate(record)
+  def clickbait
     keywords = ["Won't Believe", "Secrete", "Top [number]", "Guess"]
     result = false
     keywords.each do |word|
