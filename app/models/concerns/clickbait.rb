@@ -9,6 +9,10 @@ class Clickbait < ActiveModel::Validator
         end
       end
     end
-    result
+    if result == false
+      record.errors[:clickbait] << 'Not click bait-y enough.'
+    else
+      result
+    end
   end
 end
