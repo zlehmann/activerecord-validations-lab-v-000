@@ -4,7 +4,6 @@ class Clickbait < ActiveModel::Validator
     result = false
     if record.title != nil
       keywords.each do |word|
-        binding.pry
         if record.title.include?(word)
           result = true
         end
