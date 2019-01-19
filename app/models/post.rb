@@ -3,5 +3,16 @@ class Post < ActiveRecord::Base
   validates :content, length: { minimum: 10 }
   validates :summary, length: { maximum: 50 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
-  validates :title, inclusion: { in: %w("You Won't Believe These True Facts") }
+  validate(self)
+
+  def validate(record)
+    keywords = ["Won't Believe", "Secrete", "Top [number]", "Guess"]
+    result = false
+    keywords.each do |word|
+      if record.title.include?(word)
+        result = true
+      end
+    end
+    result
+  end
 end
