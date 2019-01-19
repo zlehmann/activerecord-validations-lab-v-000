@@ -9,6 +9,7 @@ class Clickbait < ActiveModel::Validator
         end
       end
     end
+    binding.pry
     result
   end
 end
